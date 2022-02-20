@@ -1,6 +1,7 @@
 const ValidateLoginReducer = (state, action) => {
   switch (action.type) {
     case "EMAIL_INPUT":
+      console.log(action.payload);
       return {
         value: action.payload,
         isValid: action.payload.includes("@"),

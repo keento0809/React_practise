@@ -10,7 +10,8 @@ const Home = (props) => {
 
   return (
     <div>
-      <h1>Login success!!</h1>
+      <h1>Welcome!</h1>
+      {/* <span>aaa!</span> */}
       <button onClick={logoutHandler}>Logout</button>
     </div>
   );

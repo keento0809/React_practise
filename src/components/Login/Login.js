@@ -29,12 +29,12 @@ const Form = styled.form`
 
 const initialEmailState = {
   value: "",
-  isValid: false,
+  isValid: null,
 };
 
 const initialPasswordState = {
   value: "",
-  isValid: false,
+  isValid: null,
 };
 
 const Login = (props) => {
@@ -56,9 +56,11 @@ const Login = (props) => {
   useEffect(() => {
     const identifier = setTimeout(() => {
       if (emailState.isValid) {
-        console.log("Email is valid now!");
+        // emailInputRef.current.focus();
+        console.log("Focused email");
       } else if (passwordState.isValid) {
-        console.log("Password is valid now!");
+        // passwordInputRef.current.focus();
+        console.log("Focused password");
       }
       setFormIsValid(emailState.isValid && passwordState.isValid);
     }, 300);
@@ -71,11 +73,13 @@ const Login = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (formIsValid) {
-      authCtx.onLogin();
+      authCtx.onLogin(emailState.value, passwordState.value);
+    } else if (!emailState.isValid) {
+      emailInputRef.current.focus();
+      alert("Email is invalid! Please try again.");
     } else {
-      alert(
-        "Login Failed. Email must include @. Password must be more than 7 words."
-      );
+      passwordInputRef.current.focus();
+      alert("Password is invalid! Please try again.");
     }
   };
 
@@ -107,6 +111,7 @@ const Login = (props) => {
           label="E-mail"
           id="email"
           type="text"
+          onIsValid={emailState.isValid}
           onChange={validateEmailHandler}
           onBlur={blurEmailHandler}
         />
@@ -115,6 +120,7 @@ const Login = (props) => {
           label="Password"
           id="password"
           type="password"
+          onIsValid={passwordState.isValid}
           onChange={validatePasswordHandler}
           onBlur={blurPasswordHandler}
         />

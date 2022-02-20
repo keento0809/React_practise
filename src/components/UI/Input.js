@@ -18,19 +18,30 @@ const InputStyle = styled.div`
   }
 
   & input {
+    outline: none;
     padding: 0.32rem 0.32rem;
+    border: 3px solid grey;
+  }
+
+  & input:focus {
+    background: #ffc9ff;
+    border-color: purple;
+  }
+
+  &.invalid input {
+    background: pink;
+    border-color: red;
   }
 `;
 
 const Input = React.forwardRef((props, ref) => {
   return (
-    <InputStyle>
+    <InputStyle className={`${props.onIsValid === false ? "invalid" : ""}`}>
       <label htmlFor={props.id}>{props.label}</label>
       <input
         ref={ref}
         id={props.id}
         type={props.type}
-        // isValid={}
         onChange={props.onChange}
         onBlur={props.onBlur}
       />

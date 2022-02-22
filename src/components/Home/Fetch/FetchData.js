@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import AddData from "../AddData/AddData";
 import MovieList from "./MovieList";
 
 function FetchData() {
@@ -60,15 +61,6 @@ function FetchData() {
 
   if (movies.length > 0) {
     content = <MovieList movies={movies} />;
-    // content = `${movies.map((movie) => {
-    //   return (
-    //     <li>
-    //       <h2>{movie.title}</h2>
-    //       <h3>{movie.releaseDate}</h3>
-    //       <p>{movie.openingText}</p>
-    //     </li>
-    //   );
-    // })}`;
   }
 
   console.log(content);
@@ -83,6 +75,7 @@ function FetchData() {
 
   return (
     <React.Fragment>
+      <AddData onAdd={addMovieHandler} />
       <ul>{content}</ul>
       <button onClick={fetchMoviesHandler}>Fetch</button>
     </React.Fragment>

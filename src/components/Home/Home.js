@@ -7,17 +7,17 @@ const Home = (props) => {
 
   const logoutHandler = () => {
     authCtx.onLogout();
+    authCtx.userOut();
   };
 
   return (
     <div>
       <h1>Welcome!</h1>
+      <h1>{authCtx.uerInfo}</h1>
       <button onClick={logoutHandler}>Logout</button>
       <FetchData />
     </div>
   );
 };
-
-// "https://react-http-5fce8-default-rtdb.firebaseio.com/movies.json"
 
 export default Home;

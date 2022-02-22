@@ -54,7 +54,7 @@ function FetchData() {
       }
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
   }
 
   let content = <p>Found no movies.</p>;
@@ -63,7 +63,7 @@ function FetchData() {
     content = <MovieList movies={movies} />;
   }
 
-  console.log(content);
+  // console.log(content);
 
   if (error) {
     content = <p>{error}</p>;

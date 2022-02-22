@@ -23,3 +23,11 @@ export const blurPassword = () => {
     type: "PASSWORD_BLUR",
   };
 };
+
+export const loginUserAct = (email, password) => {
+  console.log("Login user act is working correctly........");
+  return {
+    type: "USER_IN",
+    payload: { email, password },
+  };
+};

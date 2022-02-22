@@ -55,17 +55,12 @@ const Login = (props) => {
 
   useEffect(() => {
     const identifier = setTimeout(() => {
-      if (emailState.isValid) {
-        // emailInputRef.current.focus();
-        console.log("Focused email");
-      } else if (passwordState.isValid) {
-        // passwordInputRef.current.focus();
-        console.log("Focused password");
-      }
+      // console.log("Checking form validity!");
       setFormIsValid(emailState.isValid && passwordState.isValid);
     }, 300);
 
     return () => {
+      // console.log("cleanup!");
       clearTimeout(identifier);
     };
   }, [emailState.isValid, passwordState.isValid]);
@@ -73,7 +68,9 @@ const Login = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (formIsValid) {
-      authCtx.onLogin(emailState.value, passwordState.value);
+      authCtx.userIn(emailState.value, passwordState.value);
+      authCtx.onLogin();
+      // authCtx.onLogin(emailState.value, passwordState.value);
     } else if (!emailState.isValid) {
       emailInputRef.current.focus();
       alert("Email is invalid! Please try again.");
@@ -85,12 +82,12 @@ const Login = (props) => {
 
   const validateEmailHandler = (e) => {
     // emailState.value = e.target.value;
-    console.log(e.target.value);
+    // console.log(e.target.value);
     dispatchEmail(validateEmail(e.target.value));
   };
 
   const validatePasswordHandler = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     dispatchPassword(validatePassword(e.target.value));
   };
 

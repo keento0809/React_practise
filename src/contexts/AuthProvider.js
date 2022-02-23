@@ -1,5 +1,5 @@
 import React, { useState, useReducer } from "react";
-import { loginUserAct } from "../actions/validateLogin-action";
+import { loginUserAct, logoutUserAct } from "../actions/validateLogin-action";
 import ValidateLoginReducer from "../reducers/ValidateLoginReducer";
 import UserInfoReducer from "../reducers/ValidateLoginReducer";
 import AuthContext from "./auth-context";
@@ -16,7 +16,7 @@ const AuthProvider = (props) => {
 
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, dispatchUserInfo] = useReducer(
-    ValidateLoginReducer,
+    UserInfoReducer,
     initialUserInfo
   );
 
@@ -24,8 +24,9 @@ const AuthProvider = (props) => {
     setIsLogin(true);
   };
 
-  const logoutHandler = () => {
+  const logoutHandler = (email, password) => {
     setIsLogin(false);
+    dispatchUserInfo(logoutUserAct(email, password));
   };
 
   const loginUserHandler = (email, password) => {

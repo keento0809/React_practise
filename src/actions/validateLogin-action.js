@@ -31,3 +31,11 @@ export const loginUserAct = (email, password) => {
     payload: { email, password },
   };
 };
+
+export const logoutUserAct = (email, password) => {
+  console.log("Logout is now going on...");
+  return {
+    type: "USER_OUT",
+    payload: { email, password },
+  };
+};

@@ -23,7 +23,7 @@ const Home = (props) => {
 
   const logoutHandler = () => {
     authCtx.onLogout();
-    authCtx.userOut();
+    authCtx.userOut(authCtx.state.email, authCtx.state.password);
   };
 
   const countHandler = () => {
@@ -36,7 +36,7 @@ const Home = (props) => {
   return (
     <div>
       <h1>Welcome!</h1>
-      <h1>{authCtx.state.password}</h1>
+      <h1>{authCtx.state.email}</h1>
       <button onClick={logoutHandler}>Logout</button>
       <p>{plusCount.count}</p>
       <button onClick={countHandler}>PLUS</button>

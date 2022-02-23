@@ -1,14 +1,21 @@
 const UserInfoReducer = (state, action) => {
   switch (action.type) {
     case "USER_IN":
-      console.log("Whyyyyyy!!!");
+      const newEmail = action.payload.email;
+      const newPassword = action.payload.password;
       return {
-        email: { ...state.email, email: action.payload.email },
-        password: { ...state.password, password: action.payload.password },
+        ...state,
+        email: newEmail,
+        password: newPassword,
       };
-    default:
-      console.log("WTF");
-      break;
+    case "USER_OUT":
+      const resetEmail = "";
+      const resetPassword = "";
+      return {
+        ...state,
+        email: resetEmail,
+        password: resetPassword,
+      };
   }
 };
 

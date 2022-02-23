@@ -54,7 +54,6 @@ function FetchData() {
       }
     );
     const data = await response.json();
-    // console.log(data);
   }
 
   let content = <p>Found no movies.</p>;
@@ -62,8 +61,6 @@ function FetchData() {
   if (movies.length > 0) {
     content = <MovieList movies={movies} />;
   }
-
-  // console.log(content);
 
   if (error) {
     content = <p>{error}</p>;
@@ -83,3 +80,5 @@ function FetchData() {
 }
 
 export default FetchData;
+
+// "https://react-http-5fce8-default-rtdb.firebaseio.com/movies.json"

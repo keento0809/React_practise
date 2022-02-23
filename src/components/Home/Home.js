@@ -1,6 +1,7 @@
 import React, { useContext, useReducer } from "react";
 import AuthContext from "../../contexts/auth-context";
 import FetchData from "./Fetch/FetchData";
+import TryFetch from "./Try/TryFetch";
 
 const initialState = {
   count: 0,
@@ -40,7 +41,8 @@ const Home = (props) => {
       <button onClick={logoutHandler}>Logout</button>
       <p>{plusCount.count}</p>
       <button onClick={countHandler}>PLUS</button>
-      <FetchData />
+      {/* <FetchData /> */}
+      <TryFetch />
     </div>
   );
 };

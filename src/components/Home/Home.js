@@ -36,13 +36,13 @@ const Home = (props) => {
 
   return (
     <div>
-      <h1>Welcome!</h1>
+      <h1>Home Menu.</h1>
       <h1>{authCtx.state.email}</h1>
-      <button onClick={logoutHandler}>Logout</button>
+      {/* <button onClick={logoutHandler}>Logout</button> */}
       <p>{plusCount.count}</p>
       <button onClick={countHandler}>PLUS</button>
       {/* <FetchData /> */}
-      <TryFetch />
+      {/* <TryFetch /> */}
     </div>
   );
 };

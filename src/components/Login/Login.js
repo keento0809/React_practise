@@ -101,7 +101,7 @@ const Login = (props) => {
 
   return (
     <div>
-      <h1>Login Now!</h1>
+      {/* <h1>Login Now!</h1> */}
       <Form onSubmit={submitHandler}>
         <Input
           ref={emailInputRef}

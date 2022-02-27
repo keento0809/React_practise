@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from "react";
 import { loginUserAct, logoutUserAct } from "../actions/validateLogin-action";
-import ValidateLoginReducer from "../reducers/ValidateLoginReducer";
+// import ValidateLoginReducer from "../reducers/ValidateLoginReducer";
 import UserInfoReducer from "../reducers/ValidateLoginReducer";
 import AuthContext from "./auth-context";
 
@@ -9,11 +9,7 @@ const initialUserInfo = {
   password: "iii",
 };
 
-console.log(UserInfoReducer);
-
 const AuthProvider = (props) => {
-  console.log(initialUserInfo);
-
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, dispatchUserInfo] = useReducer(
     UserInfoReducer,

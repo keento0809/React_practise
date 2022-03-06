@@ -1,4 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
+import AddTask from "./AddTask";
+import styled from "styled-components";
 
 const ThirdHome = () => {
   const [tasks, setTasks] = useState([]);
@@ -18,7 +20,7 @@ const ThirdHome = () => {
 
       const loadedData = [];
       for (const key in data) {
-        console.log(data[key].text);
+        // console.log(data[key].text);
         loadedData.push(data[key].text);
       }
       setTasks(loadedData);
@@ -40,7 +42,7 @@ const ThirdHome = () => {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(task),
+        body: { text: task },
       }
     );
     const data = await response.json();
@@ -55,7 +57,14 @@ const ThirdHome = () => {
 
   if (isLoading) content = <p>Loading...</p>;
 
-  return <Fragment>{content}</Fragment>;
+  return (
+    <Fragment>
+      <section>{content}</section>
+      <section>
+        <AddTask onAddTask={addTaskToDataBaseHandler} />
+      </section>
+    </Fragment>
+  );
 };
 
 export default ThirdHome;

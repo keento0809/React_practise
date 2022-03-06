@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Home from "./components/Home/Home";
-// import Login from "./components/Login/Login";
-// import AuthContext from "./contexts/auth-context";
+import Login from "./components/Login/Login";
+import AuthContext from "./contexts/auth-context";
 // import SecondHome from "./components/SecondHome/SecondHome";
-import ThirdHome from "./components/ThirdHome/ThirdHome";
+import ForthHome from "./components/ForthHome/ForthHome";
 import "./App.css";
 
 function App() {
-  // const authCtx = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
 
   return (
     <div className="App">
-      {/* {authCtx.isLogin && <ThirdHome />}
-      {!authCtx.isLogin && <Login />} */}
-      <ThirdHome />
-      <Home />
+      {authCtx.isLogin && <ForthHome />}
+      {!authCtx.isLogin && <Login />}
+      {/* <ForthHome /> */}
+      {/* <Home /> */}
     </div>
   );
 }

@@ -8,13 +8,14 @@ import React, {
 import Input from "../UI/Input";
 import AuthContext from "../../contexts/auth-context";
 import ValidateLoginReducer from "../../reducers/ValidateLoginReducer";
-import styled from "styled-components";
 import {
   blurEmail,
   blurPassword,
   validateEmail,
   validatePassword,
 } from "../../actions/validateLogin-action";
+import styled from "styled-components";
+import Button from "@mui/material/Button";
 
 const Form = styled.form`
   text-align: center;
@@ -124,6 +125,7 @@ const Login = (props) => {
         <section>
           <button>Login</button>
         </section>
+        <Button>MUI</Button>
       </Form>
     </div>
   );
